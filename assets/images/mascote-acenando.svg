@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 190" fill="none" class="w-full h-auto">
+  <style>
+    @keyframes waveMotion {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      20% {
+        transform: rotate(-16deg);
+      }
+      40% {
+        transform: rotate(4deg);
+      }
+      60% {
+        transform: rotate(-12deg);
+      }
+      80% {
+        transform: rotate(2deg);
+      }
+    }
+    .braco-acenando {
+      transform-origin: 112px 86px;
+      transform-box: view-box;
+      animation: waveMotion 2.2s ease-in-out infinite;
+    }
+    @keyframes linePulse {
+      0%, 100% { opacity: 0.35; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+    .wave-lines {
+      transform-origin: 153px 30px;
+      transform-box: view-box;
+      animation: linePulse 1.1s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .braco-acenando, .wave-lines {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Sombra no chão -->
+  <ellipse cx="78" cy="180" rx="36" ry="6" fill="#000000" opacity="0.2" />
+
+  <!-- Pernas -->
+  <path d="M 64 140 L 64 168" stroke="#171717" stroke-width="5" stroke-linecap="round" />
+  <path d="M 92 140 L 92 168" stroke="#171717" stroke-width="5" stroke-linecap="round" />
+  <!-- Sapatinhos Vermelhos -->
+  <ellipse cx="60" cy="172" rx="12" ry="7" fill="#DC2626" stroke="#171717" stroke-width="4" />
+  <ellipse cx="96" cy="172" rx="12" ry="7" fill="#DC2626" stroke="#171717" stroke-width="4" />
+
+  <!-- Braço Esquerdo (apoiado no quadril) -->
+  <path d="M 44 86 C 28 92 24 112 36 122" stroke="#171717" stroke-width="5" stroke-linecap="round" fill="none" />
+  <circle cx="36" cy="122" r="7" fill="#DC2626" stroke="#171717" stroke-width="3.5" />
+
+  <!-- Braço Direito (Acenando para cima com animação contínua e suave) -->
+  <g class="braco-acenando">
+    <path d="M 112 86 C 128 70 134 50 138 34" stroke="#171717" stroke-width="5" stroke-linecap="round" fill="none" />
+    <!-- Mãozinha com luvinha vermelha acenando -->
+    <circle cx="138" cy="30" r="9" fill="#DC2626" stroke="#171717" stroke-width="4" />
+    <circle cx="132" cy="24" r="4" fill="#DC2626" stroke="#171717" stroke-width="3" />
+    <!-- Linhas de movimento de aceno -->
+    <g class="wave-lines">
+      <path d="M 150 20 C 153 25 153 32 150 38" stroke="#171717" stroke-width="3" stroke-linecap="round" />
+      <path d="M 156 16 C 160 25 160 35 156 44" stroke="#171717" stroke-width="3" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Corpo da Caixinha / Lata de Lixo Verde do Muro -->
+  <rect x="42" y="44" width="72" height="98" rx="8" fill="#15803D" stroke="#171717" stroke-width="5" />
+
+  <!-- Tampa / Boné Azul do Muro -->
+  <rect x="36" y="34" width="84" height="15" rx="5" fill="#1D4ED8" stroke="#171717" stroke-width="4.5" />
+  <!-- Pegador da tampa Amarelo do Muro -->
+  <path d="M 68 34 C 68 24 88 24 88 34" stroke="#171717" stroke-width="4.5" fill="#EAB308" />
+
+  <!-- Faixa decorativa no corpo (amarelo e vermelho) -->
+  <rect x="42" y="122" width="72" height="8" fill="#EAB308" />
+  <rect x="42" y="130" width="72" height="6" fill="#DC2626" />
+  <line x1="42" y1="122" x2="114" y2="122" stroke="#171717" stroke-width="4" />
+
+  <!-- Símbolo da Reciclagem no peito (Amarelo) -->
+  <g transform="translate(64, 96) scale(0.48)">
+    <path d="M 28 6 L 36 20 L 20 20 Z" fill="#EAB308" stroke="#171717" stroke-width="3" />
+    <path d="M 24 16 C 36 16 46 24 46 38 L 52 34 L 44 54 L 30 44 L 36 42 C 36 32 30 24 24 24 Z" fill="#EAB308" stroke="#171717" stroke-width="3" />
+    <path d="M 50 48 C 44 60 34 66 20 66 L 24 72 L 4 64 L 16 50 L 18 56 C 26 56 34 50 38 42 Z" fill="#EAB308" stroke="#171717" stroke-width="3" />
+    <path d="M 12 58 C 4 50 2 36 8 26 L 2 24 L 16 10 L 20 26 L 14 24 C 10 32 12 42 18 48 Z" fill="#EAB308" stroke="#171717" stroke-width="3" />
+  </g>
+
+  <!-- Rostinho Amigável -->
+  <!-- Olho Esquerdo -->
+  <ellipse cx="64" cy="72" rx="7" ry="9" fill="#FFFFFF" stroke="#171717" stroke-width="3.5" />
+  <circle cx="66" cy="73" r="4.5" fill="#171717" />
+  <circle cx="67.5" cy="70.5" r="1.8" fill="#FFFFFF" />
+
+  <!-- Olho Direito -->
+  <ellipse cx="92" cy="72" rx="7" ry="9" fill="#FFFFFF" stroke="#171717" stroke-width="3.5" />
+  <circle cx="94" cy="73" r="4.5" fill="#171717" />
+  <circle cx="95.5" cy="70.5" r="1.8" fill="#FFFFFF" />
+
+  <!-- Bochechas rosadas / simpáticas -->
+  <ellipse cx="54" cy="81" rx="4" ry="2.5" fill="#EAB308" opacity="0.8" />
+  <ellipse cx="102" cy="81" rx="4" ry="2.5" fill="#EAB308" opacity="0.8" />
+
+  <!-- Boca sorrindo grande -->
+  <path d="M 68 83 C 74 94 82 94 88 83" stroke="#171717" stroke-width="4" stroke-linecap="round" fill="#FFFFFF" />
+</svg>

@@ -1,0 +1,370 @@
+/* Ecoponto Cidade Ocidental - Identidade Visual Cívica, Mascote & Smart Header */
+
+:root {
+  --bg-page: #fbfbfa;
+  --bg-card: #ffffff;
+  --bg-dark: #143820;
+  --text-main: #171717;
+  --text-muted: #555555;
+  --border-subtle: #e5e5e2;
+  
+  /* Cores oficiais do muro do Ecoponto (vibrantes, saturadas, opacas) */
+  --muro-verde: #15803d;
+  --muro-azul: #1d4ed8;
+  --muro-amarelo: #eab308;
+  --muro-vermelho: #dc2626;
+  --muro-dark: #12331d;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+::selection {
+  background-color: #fef08a;
+  color: #171717;
+}
+
+/* ==========================================================================
+   A) HEADER: COMPORTAMENTO HIDE ON SCROLL DOWN / SHOW ON SCROLL UP
+   ========================================================================== */
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #fbfbfa;
+  border-bottom: 2px solid #171717;
+  transition: transform 250ms ease-out;
+  will-change: transform;
+}
+
+#main-header.header-hidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-header {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   B) FAIXA DAS LISTRAS DO MURO (BLOCOS VERTICAIS COLORIDOS)
+   ========================================================================== */
+.muro-stripe {
+  height: 12px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--muro-verde) 0px,
+    var(--muro-verde) 26px,
+    var(--muro-azul) 26px,
+    var(--muro-azul) 52px,
+    var(--muro-amarelo) 52px,
+    var(--muro-amarelo) 78px,
+    var(--muro-vermelho) 78px,
+    var(--muro-vermelho) 104px
+  );
+  border-top: 2px solid #171717;
+  border-bottom: 2px solid #171717;
+}
+
+.muro-stripe-sm {
+  height: 8px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--muro-verde) 0px,
+    var(--muro-verde) 18px,
+    var(--muro-azul) 18px,
+    var(--muro-azul) 36px,
+    var(--muro-amarelo) 36px,
+    var(--muro-amarelo) 54px,
+    var(--muro-vermelho) 54px,
+    var(--muro-vermelho) 72px
+  );
+  border-top: 1.5px solid #171717;
+  border-bottom: 1.5px solid #171717;
+}
+
+/* Tipografia de letreiro / cartaz */
+.font-display {
+  font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+/* ==========================================================================
+   BOTÕES COM SOMBRA DURA TIPO ADESIVO (CURVAS MODERNAS & ARREDONDADAS)
+   ========================================================================== */
+.btn-sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #171717;
+  border-radius: 14px;
+  box-shadow: 3px 3px 0px #171717;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-sticker:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4.5px 4.5px 0px #171717;
+}
+
+.btn-sticker:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #171717;
+}
+
+/* Bolinhas Flutuantes de Ação Rápida (FABs) */
+.btn-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  border: 2.5px solid #171717;
+  box-shadow: 3.5px 3.5px 0px #171717;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  position: relative;
+}
+
+.btn-fab:hover {
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow: 5px 5px 0px #171717;
+}
+
+.btn-fab:active {
+  transform: translate(2px, 2px) scale(0.95);
+  box-shadow: 1.5px 1.5px 0px #171717;
+}
+
+.btn-sticker-yellow {
+  background-color: #facc15;
+  color: #171717;
+}
+.btn-sticker-yellow:hover {
+  background-color: #eab308;
+}
+
+.btn-sticker-green {
+  background-color: #15803d;
+  color: #ffffff;
+}
+.btn-sticker-green:hover {
+  background-color: #166534;
+}
+
+.btn-sticker-white {
+  background-color: #ffffff;
+  color: #171717;
+}
+.btn-sticker-white:hover {
+  background-color: #f5f5f4;
+}
+
+.btn-sticker-black {
+  background-color: #171717;
+  color: #ffffff;
+}
+.btn-sticker-black:hover {
+  background-color: #262626;
+}
+
+/* Foco acessível */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid #171717;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   C) MASCOTE INTERATIVO & ANIMAÇÕES CÍVICAS SUTIS
+   ========================================================================== */
+
+/* Entrada suave ao carregar a página */
+@keyframes mascoteEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.88);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.04);
+  }
+  80% {
+    transform: translateY(2px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mascote-entrance {
+  animation: mascoteEntrance 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Espiando suave ao rolar para a seção */
+@keyframes mascotePeekUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mascote-peek-in {
+  animation: mascotePeekUp 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Interatividade base: hover & foco amigáveis */
+/* Interatividade base: hover & foco amigáveis */
+.mascote-interactive {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+  will-change: transform;
+}
+
+.mascote-interactive:hover {
+  transform: translateY(-4px) scale(1.04);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.22));
+}
+
+.mascote-interactive:active {
+  transform: scale(0.97);
+}
+
+/* Reação atenta quando o usuário passa o mouse ou foca em botões importantes */
+.mascote-attentive {
+  transform: translateY(-4px) scale(1.06) rotate(-2deg) !important;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.25)) !important;
+}
+
+/* Salto alegre fluido de desenho animado (Squash & Stretch na IMAGEM, sem travar o container ou o balão) */
+@keyframes mascoteHopJoy {
+  0% {
+    transform: translateY(0) scale(1, 1);
+  }
+  20% {
+    transform: translateY(3px) scale(1.09, 0.91);
+  }
+  45% {
+    transform: translateY(-16px) scale(0.94, 1.08);
+  }
+  70% {
+    transform: translateY(1.5px) scale(1.04, 0.96);
+  }
+  85% {
+    transform: translateY(-2.5px) scale(0.99, 1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+.mascote-jump {
+  animation: mascoteHopJoy 0.48s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+  will-change: transform;
+}
+
+/* Balão de fala do Mascote (Speech Bubble) estilo adesivo */
+.mascote-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px) scale(0.95);
+  background-color: #FEF08A; /* Amarelo acolhedor do Ecoponto */
+  color: #171717;
+  border: 2px solid #171717;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  box-shadow: 3px 3px 0px #171717;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0;
+  max-width: 210px;
+  min-width: 140px;
+  white-space: normal;
+  transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Setinha do balão apontando para o mascote */
+.mascote-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #171717 transparent transparent transparent;
+}
+
+.mascote-bubble.bubble-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* Quando o balão de fala está visível, oculta temporariamente o selinho de dica */
+.mascote-interactive:has(.bubble-visible) span[class*="absolute -bottom"] {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* ==========================================================================
+   DOCK FLUTUANTE DE AÇÕES RÁPIDAS (MAPS + WHATSAPP)
+   Recolhimento suave e inteligente ao rolar até o rodapé
+   ========================================================================== */
+#fab-dock {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+  will-change: transform, opacity;
+}
+
+#fab-dock.fab-dock-hidden {
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Respeito estrito a acessibilidade: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mascote-entrance,
+  .mascote-peek-in,
+  .mascote-jump,
+  .mascote-interactive,
+  .mascote-attentive {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

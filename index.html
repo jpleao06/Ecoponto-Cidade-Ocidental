@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Ecoponto Cidade Ocidental | Descarte de Resíduos e Bota-Fora</title>
+  <meta name="description" content="Local oficial da Prefeitura de Cidade Ocidental para descarte correto de materiais recicláveis, eletrônicos, entulho e agendamento do Bota-Fora. Aberto diariamente das 7h às 19h." />
+
+  <!-- Google Fonts: Bricolage Grotesque (Títulos de Cartaz) e Inter (Texto e Metadados) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            page: '#FBFBFA',
+            borderline: '#171717',
+            muro: {
+              verde: '#15803D',
+              verdeDark: '#12331D',
+              azul: '#1D4ED8',
+              azulDark: '#1E40AF',
+              amarelo: '#FACC15',
+              amareloDark: '#EAB308',
+              vermelho: '#DC2626',
+              vermelhoDark: '#B91C1C'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            display: ['Bricolage Grotesque', 'Inter', '-apple-system', 'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '6px',
+            sm: '4px',
+            md: '6px',
+            lg: '8px'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+
+<body class="bg-page text-neutral-900 font-sans antialiased min-h-screen flex flex-col pt-16 sm:pt-20">
+
+  <!-- ==========================================
+       A) HEADER INTELIGENTE (HIDE ON SCROLL DOWN, SHOW ON SCROLL UP)
+       ========================================== -->
+  <!-- ==========================================
+       A) HEADER INTELIGENTE (HIDE ON SCROLL DOWN, SHOW ON SCROLL UP)
+       ========================================== -->
+  <header id="main-header" class="border-b-2 border-neutral-900 bg-[#FBFBFA]">
+    <!-- Faixa colorida do muro no topo do header -->
+    <div class="muro-stripe-sm" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+        
+        <!-- Identificação Oficial com Ícone Colorido (Nunca Trunca) -->
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="#inicio" class="flex items-center gap-2.5 group">
+            <div class="w-9 h-9 rounded bg-muro-verde border-2 border-neutral-950 shadow-[2px_2px_0px_#171717] flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-recycle text-muro-amarelo text-base"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-display font-black text-base sm:text-lg text-neutral-950 tracking-tight leading-none whitespace-nowrap">
+                Ecoponto <span class="text-muro-verde">Cidade Ocidental</span>
+              </span>
+              <span class="text-[11px] text-neutral-600 font-bold tracking-wide mt-0.5 whitespace-nowrap">
+                SMLU · Secretaria de Limpeza Urbana
+              </span>
+            </div>
+          </a>
+
+          <!-- Status em Pílula Colorida com Ponto Verde -->
+          <div id="status-container" class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-400 text-xs font-bold text-emerald-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap ml-2">
+            <span id="status-dot" class="w-2 h-2 rounded-full bg-muro-verde shrink-0 inline-block animate-pulse"></span>
+            <span id="status-text">Aberto agora · fecha às 19h</span>
+          </div>
+        </div>
+
+        <!-- Navegação Desktop: Tópicos Bem Divididos em Botões Coloridos -->
+        <div class="hidden lg:flex items-center gap-3 xl:gap-4 whitespace-nowrap">
+          <nav class="flex items-center gap-2 text-xs font-bold">
+            <!-- Tópico: Consulta Rápida -->
+            <a href="#consulta" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 hover:bg-[#4ADE80] text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px] font-black">
+              <i class="fa-solid fa-magnifying-glass text-neutral-950 text-xs"></i>
+              <span>Consulta Rápida</span>
+            </a>
+
+            <!-- Tópico 1: Amarelo -->
+            <a href="#informacoes" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-muro-amarelo text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px]">
+              <span class="w-2 h-2 rounded-full bg-amber-500 border border-neutral-900"></span>
+              <span>Horário & Local</span>
+            </a>
+
+            <!-- Tópico 2: Azul Claro -->
+            <a href="#recebemos" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-muro-azul hover:text-white text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px]">
+              <span class="w-2 h-2 rounded-full bg-blue-500 border border-neutral-900"></span>
+              <span>O que recebemos</span>
+            </a>
+
+            <!-- Tópico 3: Vermelho -->
+            <a href="#nao-aceitos" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 hover:bg-muro-vermelho hover:text-white text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px]">
+              <span class="w-2 h-2 rounded-full bg-red-500 border border-neutral-900"></span>
+              <span>Não aceitos</span>
+            </a>
+
+            <!-- Tópico 4: Neutro / Azul -->
+            <a href="#local" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-100 hover:bg-neutral-800 hover:text-white text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px]">
+              <span class="w-2 h-2 rounded-full bg-neutral-500 border border-neutral-900"></span>
+              <span>Fotos reais</span>
+            </a>
+          </nav>
+
+          <!-- Telefone / WhatsApp com Estilo Adesivo Amarelo -->
+          <a href="https://wa.me/5561999064704?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Ecoponto."
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="btn-sticker btn-sticker-yellow text-xs px-3.5 py-2 gap-1.5 shrink-0 whitespace-nowrap shadow-[3px_3px_0px_#171717]">
+            <i class="fa-brands fa-whatsapp text-neutral-950 text-sm"></i>
+            <span>(61) 99906-4704</span>
+          </a>
+        </div>
+
+        <!-- Controles Mobile / Tablet (lg:hidden) -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <a href="#consulta" 
+             class="btn-sticker bg-emerald-100 hover:bg-[#4ADE80] text-neutral-950 text-xs px-2.5 py-1.5 gap-1.5 shadow-[2px_2px_0px_#171717] font-black">
+            <i class="fa-solid fa-magnifying-glass text-neutral-950"></i>
+            <span>Consultar</span>
+          </a>
+          <a href="https://wa.me/5561999064704" 
+             class="btn-sticker btn-sticker-yellow text-xs px-2.5 py-1.5 gap-1.5 shadow-[2px_2px_0px_#171717]">
+            <i class="fa-brands fa-whatsapp text-neutral-950"></i>
+            <span class="hidden sm:inline">(61) 99906-4704</span>
+            <span class="sm:hidden">WhatsApp</span>
+          </a>
+          <button id="mobile-menu-toggle" aria-label="Abrir menu de navegação" class="p-2 text-neutral-950 hover:bg-neutral-100 rounded-xl border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] bg-white">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dropdown Mobile com Tópicos Claros e Coloridos -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-neutral-900 bg-[#FBFBFA] px-4 py-4 space-y-2.5">
+      <div class="flex items-center justify-between pb-2 border-b border-neutral-200 text-xs font-bold text-neutral-700">
+        <span>Navegação Rápida</span>
+        <div class="inline-flex items-center gap-1.5 text-xs text-neutral-800">
+          <span class="w-2 h-2 rounded-full bg-muro-verde"></span>
+          <span>Aberto das 7h às 19h</span>
+        </div>
+      </div>
+
+      <!-- Destaque: Consulta Rápida -->
+      <a href="#consulta" class="flex items-center justify-between p-2.5 rounded-xl bg-emerald-100 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
+        <div class="flex items-center gap-2.5">
+          <span class="w-6 h-6 rounded-lg bg-[#4ADE80] text-neutral-950 flex items-center justify-center text-xs border border-neutral-900">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <span>Consulta Rápida (O que descartar?)</span>
+        </div>
+        <i class="fa-solid fa-arrow-right text-neutral-700 text-xs"></i>
+      </a>
+
+      <a href="#informacoes" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-amber-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
+        <span class="w-3 h-3 rounded-full bg-amber-500 border border-neutral-900"></span>
+        <span>Horário & Localização (SQ 17)</span>
+      </a>
+
+      <a href="#recebemos" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-blue-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
+        <span class="w-3 h-3 rounded-full bg-blue-500 border border-neutral-900"></span>
+        <span>O que recebemos (Recicláveis, Entulho, Móveis)</span>
+      </a>
+
+      <a href="#nao-aceitos" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-red-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
+        <span class="w-3 h-3 rounded-full bg-muro-vermelho border border-neutral-900"></span>
+        <span>O que NÃO aceitamos (Lixo orgânico, Podas)</span>
+      </a>
+
+      <a href="#local" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-neutral-100 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
+        <span class="w-3 h-3 rounded-full bg-neutral-500 border border-neutral-900"></span>
+        <span>Fotos do Pátio</span>
+      </a>
+
+      <div class="pt-2 border-t border-neutral-200">
+        <a href="https://wa.me/5561999064704" class="btn-sticker btn-sticker-yellow w-full py-3 text-sm justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg text-neutral-950"></i>
+          <span>Agendar no WhatsApp (61) 99906-4704</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FAIXA 1 DO MURO COLORIDO (LISTRAS VERTICAIS) -->
+  <div class="muro-stripe" aria-hidden="true"></div>
+
+  <main class="flex-grow">
+
+    <!-- ==========================================
+         1. HERO SECTION: FUNDO VERDE VIBRANTE DO MURO COM MASCOTE
+         ========================================== -->
+    <section id="inicio" class="bg-muro-verde text-white pt-8 pb-14 sm:pt-14 sm:pb-20 relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          <!-- Texto Hero + Mascote Acenando -->
+          <div class="lg:col-span-7 space-y-5">
+            
+            <!-- Frase de efeito em amarelo brilhante tipo cartaz -->
+            <div class="inline-block bg-muro-amarelo text-neutral-950 font-display font-black text-xs sm:text-sm uppercase tracking-wider px-3.5 py-1 rounded-full border-2 border-neutral-950 shadow-[2px_2px_0px_#171717]">
+              Descarte aqui. É de graça!
+            </div>
+
+            <div class="flex items-start gap-4">
+              <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.05] drop-shadow-sm">
+                Ecoponto <br class="hidden sm:inline" />
+                Cidade Ocidental
+              </h1>
+
+              <!-- Mascote Acenando integrado ao lado do título (Interativo) -->
+              <div id="hero-mascote-container" 
+                   class="w-20 sm:w-28 shrink-0 self-center relative mascote-interactive mascote-entrance group"
+                   role="button" 
+                   tabindex="0" 
+                   aria-label="Tocar no mascote do Ecoponto para ver uma mensagem">
+                <!-- Balão de fala dinâmico -->
+                <div id="hero-mascote-bubble" class="mascote-bubble" aria-live="polite"></div>
+                <img id="hero-mascote-img" 
+                     src="assets/images/mascote-acenando.svg" 
+                     alt="Mascote do Ecoponto acenando animado" 
+                     class="w-full h-auto drop-shadow-md" />
+                <!-- Selinho sutil indicando interatividade -->
+                <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-muro-amarelo text-neutral-950 font-display font-black text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full border border-neutral-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap pointer-events-none uppercase tracking-tight flex items-center gap-1 group-hover:scale-105 transition-transform">
+                  <span>👆 Toque aqui</span>
+                </span>
+              </div>
+            </div>
+
+            <p class="text-base sm:text-lg text-emerald-50 leading-relaxed font-medium max-w-xl">
+              O local oficial da prefeitura para o descarte correto de materiais recicláveis e resíduos de pequeno volume.
+            </p>
+
+            <!-- Linha textual direta de benefícios em fundo de alto contraste -->
+            <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-neutral-950 text-white font-bold text-xs sm:text-sm tracking-wide border-2 border-neutral-950 shadow-[2px_2px_0px_rgba(255,255,255,0.4)]">
+              <span class="text-muro-amarelo">★</span>
+              <span>Gratuito · Aberto todos os dias · Programa Bota-Fora</span>
+            </div>
+
+            <!-- Ações: Botões com sombra dura tipo adesivo -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a href="#consulta"
+                 class="btn-sticker btn-sticker-white px-5 py-3.5 text-sm sm:text-base gap-2 font-black">
+                <i class="fa-solid fa-magnifying-glass text-muro-verde text-base"></i>
+                <span>Consultar meu descarte</span>
+              </a>
+
+              <a href="https://wa.me/5561999064704?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20a%20coleta%20de%20m%C3%B3veis%20(Bota-Fora)%20no%20Ecoponto."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-sticker btn-sticker-yellow px-5 py-3.5 text-sm sm:text-base gap-2.5">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Agendar Bota-Fora</span>
+              </a>
+
+              <a href="#informacoes"
+                 class="btn-sticker bg-emerald-900/50 hover:bg-emerald-900 text-white border-2 border-neutral-950 px-4 py-3.5 text-sm sm:text-base">
+                Como chegar
+              </a>
+            </div>
+
+            <p class="text-xs text-emerald-100 font-medium pt-1">
+              Atendimento e agendamento da SMLU: <strong class="text-white underline decoration-muro-amarelo">(61) 99906-4704</strong>
+            </p>
+
+          </div>
+
+          <!-- Foto real com borda de 2px sólida preta -->
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl overflow-hidden border-2 border-neutral-950 bg-neutral-900 shadow-[6px_6px_0px_#171717]">
+              <img src="assets/images/ecoponto-fachada.jpg" 
+                   alt="Fachada real do Ecoponto de Cidade Ocidental na SQ 17 com muro colorido"
+                   class="w-full h-64 sm:h-80 object-cover" />
+              <div class="p-3 bg-white border-t-2 border-neutral-950 flex items-center justify-between text-xs text-neutral-900 font-bold">
+                <span>Entrada na SQ 17, Quadra 08</span>
+                <span class="text-muro-verde uppercase">Muro Colorido</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAIXA 2 DO MURO COLORIDO NA BASE DO HERO -->
+    <div class="muro-stripe" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         2. HORÁRIO E LOCALIZAÇÃO: FUNDO AMARELO VIBRANTE DO MURO COM MASCOTE ESPIANDO
+         ========================================== -->
+    <section id="informacoes" class="bg-muro-amarelo text-neutral-950 py-12 sm:py-16 relative border-b-2 border-neutral-950">
+      
+      <!-- Mascote Espiando no topo do bloco (Interativo e com efeito ao rolar) -->
+      <div id="espiando-mascote-container" 
+           class="absolute -top-14 right-6 sm:right-16 w-20 sm:w-24 z-20 pointer-events-auto mascote-interactive group"
+           role="button" 
+           tabindex="0" 
+           aria-label="Tocar no mascote espiando para ver uma dica de horário">
+        <div id="espiando-mascote-bubble" class="mascote-bubble" aria-live="polite"></div>
+        <img id="espiando-mascote-img" 
+             src="assets/images/mascote-espiando.svg" 
+             alt="Mascote do Ecoponto espiando pela borda" 
+             class="w-full h-auto drop-shadow-md" />
+        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white text-neutral-950 font-display font-black text-[9px] px-2 py-0.5 rounded-full border border-neutral-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap pointer-events-none uppercase tracking-tight flex items-center gap-1 group-hover:scale-105 transition-transform animate-bounce">
+          <span>👆 Toque aqui</span>
+        </span>
+      </div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- Horário de Funcionamento em Destaque -->
+          <div class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-neutral-950 shadow-[6px_6px_0px_#171717] flex flex-col justify-between">
+            <div class="space-y-3">
+              <span class="inline-block bg-neutral-950 text-white font-display font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full border border-neutral-950">
+                Horário de Atendimento
+              </span>
+              <p class="font-display font-black text-4xl sm:text-5xl text-neutral-950 leading-none pt-1">
+                7h às 19h
+              </p>
+              <p class="font-display font-extrabold text-xl sm:text-2xl text-muro-verde">
+                Aberto todos os dias
+              </p>
+              <p class="text-sm sm:text-base text-neutral-700 font-medium leading-relaxed pt-2">
+                Atendimento ininterrupto de segunda a domingo, inclusive feriados municipais. Sem intervalo para almoço.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t-2 border-neutral-100 flex items-center gap-2 text-xs font-bold text-neutral-700">
+              <i class="fa-solid fa-clock text-muro-verde text-sm"></i>
+              <span>12 horas diárias contínuas de portões abertos</span>
+            </div>
+          </div>
+
+          <!-- Localização e Endereço com Mapa Interativo -->
+          <div class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-neutral-950 shadow-[6px_6px_0px_#171717] flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <span class="inline-block bg-muro-azul text-white font-display font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full border border-neutral-950">
+                Endereço & Ponto de Referência
+              </span>
+              <p class="text-base sm:text-lg font-bold text-neutral-950 leading-snug">
+                Super Quadra 17 (SQ 17), Quadra 08, área especial (ao lado da Capela Nossa Senhora de Fátima).
+              </p>
+              <p class="text-xs sm:text-sm text-neutral-700 font-medium">
+                Cidade Ocidental - GO. Localização fácil ao lado da capela, identificada de longe pelo muro colorido.
+              </p>
+
+              <!-- Mapa Interativo do Google Maps Embutido com Curvas Modernas -->
+              <div class="rounded-2xl overflow-hidden border-2 border-neutral-950 shadow-[3px_3px_0px_#171717] bg-neutral-100 relative h-44 sm:h-48 w-full">
+                <iframe 
+                  title="Mapa de Localização do Ecoponto na SQ 17"
+                  src="https://maps.google.com/maps?q=Capela+Nossa+Senhora+de+Fatima,+Cidade+Ocidental+-+GO&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                  class="w-full h-full border-0" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+
+            <!-- Ações Rápidas de GPS & Rotas -->
+            <div class="pt-2 flex flex-wrap items-center gap-2.5">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Capela+Nossa+Senhora+de+Fatima+Super+Quadra+17+Cidade+Ocidental+GO"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-sticker btn-sticker-black px-4 py-2.5 text-xs gap-2">
+                <i class="fa-solid fa-diamond-turn-right text-muro-amarelo text-sm"></i>
+                <span>Rota no Google Maps</span>
+              </a>
+
+              <a href="https://waze.com/ul?q=Capela+Nossa+Senhora+de+Fatima+Cidade+Ocidental"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-sticker bg-cyan-100 hover:bg-cyan-200 text-neutral-950 px-3.5 py-2.5 text-xs gap-2">
+                <i class="fa-brands fa-waze text-blue-600 text-sm"></i>
+                <span>Waze</span>
+              </a>
+
+              <button id="btn-copy-address" 
+                      type="button" 
+                      class="btn-sticker btn-sticker-white px-3.5 py-2.5 text-xs gap-2">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copiar</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONSULTA RÁPIDA DE DESCARTE (AMPLA, BOLD E IMPOSSÍVEL DE PASSAR DESPERCEBIDO)
+         ========================================== -->
+    <section id="consulta" class="py-12 sm:py-16 bg-[#4ADE80] border-b-2 border-neutral-900 relative scroll-mt-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        
+        <!-- Header da Seção: Grande, Claro e Conectado à Identidade -->
+        <div class="text-center sm:text-left mb-6 sm:mb-8 space-y-2">
+          <div class="inline-flex items-center gap-2 bg-muro-amarelo text-neutral-950 font-display font-black text-xs sm:text-sm uppercase tracking-wider px-4 py-1.5 rounded-full border-2 border-neutral-950 shadow-[2px_2px_0px_#171717]">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Consulta Rápida Descarte</span>
+          </div>
+          
+          <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-neutral-950 tracking-tight leading-tight">
+            Digite o que você deseja descartar
+          </h2>
+        </div>
+
+        <!-- Barra de Busca Gigante em Alto Contraste (Mobile-First) -->
+        <div class="relative">
+          <div id="search-box-container" class="flex items-center rounded-2xl border-[3px] border-neutral-950 bg-white shadow-[6px_6px_0px_#171717] overflow-hidden focus-within:ring-4 focus-within:ring-neutral-950 transition-all">
+            <div class="pl-4 sm:pl-6 pr-2 sm:pr-3 text-neutral-950 shrink-0">
+              <i class="fa-solid fa-magnifying-glass text-xl sm:text-2xl"></i>
+            </div>
+            
+            <input type="text" 
+                   id="material-search" 
+                   autocomplete="off"
+                   placeholder="Digite o item aqui..." 
+                   class="w-full py-4 sm:py-5 px-2 text-lg sm:text-2xl font-display font-black text-neutral-950 placeholder-neutral-400 focus:outline-none bg-transparent" />
+            
+            <button id="search-clear-btn" 
+                    type="button" 
+                    class="hidden px-4 sm:px-5 py-3 text-neutral-400 hover:text-neutral-950 text-xl font-black shrink-0 transition-colors"
+                    aria-label="Limpar consulta">
+              <i class="fa-solid fa-xmark text-xl sm:text-2xl"></i>
+            </button>
+          </div>
+
+          <!-- Card Dinâmico de Resposta Imediata (aparece quando a pessoa digita) -->
+          <div id="search-verdict-card" class="hidden mt-6 transition-all duration-200">
+            <!-- Gerado dinamicamente pelo JavaScript com veredito grande e explicativo -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. "O QUE RECEBEMOS": LISTA EDITORIAL COM ILUSTRAÇÕES DE TRAÇO GROSSO E BLOCO DO BOTA-FORA COM MASCOTE
+         ========================================== -->
+    <section id="recebemos" class="py-12 sm:py-16 border-b-2 border-neutral-900 bg-[#93C5FD]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-8 sm:mb-10">
+          <span class="inline-block bg-neutral-950 text-white font-display font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-full border-2 border-neutral-950 shadow-[2px_2px_0px_#171717]">
+            Descarte Autorizado & Gratuito
+          </span>
+          <h2 class="font-display font-black text-3xl sm:text-5xl text-neutral-950 tracking-tight mt-2">
+            O que recebemos
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-950 font-bold mt-1">
+            Leve seus materiais recicláveis e pequenos entulhos. O recebimento é 100% gratuito para toda a população de Cidade Ocidental.
+          </p>
+        </div>
+
+        <!-- Cards Mobile-First com cantos suaves arredondados -->
+        <div class="space-y-6">
+          
+          <!-- Card 01: Materiais Recicláveis (Verde do Muro) -->
+          <div class="item-accepted bg-white rounded-2xl border-2 border-neutral-950 shadow-[4px_4px_0px_#171717] overflow-hidden">
+            <div class="bg-muro-verde text-white px-5 py-3 border-b-2 border-neutral-950 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="font-display font-black text-lg sm:text-xl text-muro-amarelo">01</span>
+                <span class="font-display font-black text-base sm:text-lg uppercase tracking-tight">Materiais recicláveis</span>
+              </div>
+              <i class="fa-solid fa-recycle text-lg text-muro-amarelo"></i>
+            </div>
+            
+            <div class="p-5 space-y-3">
+              <p class="text-base sm:text-lg font-bold text-neutral-950 leading-snug">
+                Vidro, plástico, papel e papelão.
+              </p>
+              <p class="text-sm text-neutral-700 font-medium leading-relaxed">
+                Garrafas, potes de vidro, caixas de papelão desmontadas, embalagens plásticas limpas, jornais e recipientes secos.
+              </p>
+              <div class="pt-1 flex flex-wrap gap-2 text-xs font-bold text-neutral-800">
+                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-neutral-900">✓ Garrafas e Vidros</span>
+                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-neutral-900">✓ Caixas e Papelão</span>
+                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-neutral-900">✓ Embalagens Plásticas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02: Lixo Eletrônico (Azul do Muro) -->
+          <div class="item-accepted bg-white rounded-2xl border-2 border-neutral-950 shadow-[4px_4px_0px_#171717] overflow-hidden">
+            <div class="bg-muro-azul text-white px-5 py-3 border-b-2 border-neutral-950 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="font-display font-black text-lg sm:text-xl text-muro-amarelo">02</span>
+                <span class="font-display font-black text-base sm:text-lg uppercase tracking-tight">Lixo eletrônico</span>
+              </div>
+              <i class="fa-solid fa-tv text-lg text-muro-amarelo"></i>
+            </div>
+            
+            <div class="p-5 space-y-3">
+              <p class="text-base sm:text-lg font-bold text-neutral-950 leading-snug">
+                Computadores, celulares e televisores.
+              </p>
+              <p class="text-sm text-neutral-700 font-medium leading-relaxed">
+                Monitores, impressoras velhas, cabos, carregadores, eletrodomésticos de pequeno porte e eletrônicos queimados ou fora de uso.
+              </p>
+              <div class="pt-1 flex flex-wrap gap-2 text-xs font-bold text-neutral-800">
+                <span class="px-3 py-1 rounded-full bg-blue-50 border border-neutral-900">✓ Celulares e Tablets</span>
+                <span class="px-3 py-1 rounded-full bg-blue-50 border border-neutral-900">✓ TVs e Computadores</span>
+                <span class="px-3 py-1 rounded-full bg-blue-50 border border-neutral-900">✓ Fios e Aparelhos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 03: Construção Civil (Amarelo do Muro) -->
+          <div class="item-accepted bg-white rounded-2xl border-2 border-neutral-950 shadow-[4px_4px_0px_#171717] overflow-hidden">
+            <div class="bg-muro-amarelo text-neutral-950 px-5 py-3 border-b-2 border-neutral-950 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="font-display font-black text-lg sm:text-xl text-neutral-950">03</span>
+                <span class="font-display font-black text-base sm:text-lg uppercase tracking-tight">Resíduos da construção civil</span>
+              </div>
+              <i class="fa-solid fa-trowel-bricks text-lg text-neutral-950"></i>
+            </div>
+            
+            <div class="p-5 space-y-3">
+              <p class="text-base sm:text-lg font-bold text-neutral-950 leading-snug">
+                Entulho de pequenas obras e reformas.
+              </p>
+              <p class="text-sm text-neutral-700 font-medium leading-relaxed">
+                Restos de alvenaria, concreto, pedaços de tijolo, azulejo e sobras secas de argamassa.
+              </p>
+              <div class="p-3 bg-amber-100 rounded-xl border-2 border-neutral-950 text-xs sm:text-sm font-black text-neutral-950 flex items-center gap-2.5">
+                <i class="fa-solid fa-triangle-exclamation text-amber-700 text-lg shrink-0"></i>
+                <span>Limite máximo: até 1 m³ por descarte (cerca de 20 sacos de entulho).</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 04: Grandes Objetos e Móveis (Bota-Fora) -->
+          <div class="item-accepted rounded-3xl bg-muro-verdeDark text-white p-6 sm:p-8 border-2 border-neutral-950 shadow-[6px_6px_0px_#171717] relative overflow-hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              
+              <div class="space-y-3 max-w-xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muro-amarelo text-neutral-950 font-display font-black text-xs uppercase tracking-wider border-2 border-neutral-950">
+                  <span>04 · Programa Municipal Bota-Fora</span>
+                </div>
+                
+                <h3 class="font-display font-black text-2xl sm:text-4xl text-white tracking-tight leading-tight">
+                  Seu sofá está velho? A prefeitura busca.
+                </h3>
+                
+                <p class="text-sm sm:text-base text-emerald-100 font-medium leading-relaxed">
+                  <strong>Grandes objetos e móveis:</strong> sofás, camas, armários, mesas e colchões. Leve direto ao Ecoponto ou solicite o agendamento de recolhimento na sua casa pelo WhatsApp.
+                </p>
+
+                <div class="pt-2">
+                  <a href="https://wa.me/5561999064704?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20o%20Bota-Fora%20para%20coleta%20de%20m%C3%B3veis."
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     class="btn-sticker btn-sticker-yellow w-full sm:w-auto px-6 py-4 text-sm sm:text-base gap-2.5 shadow-[4px_4px_0px_#000]">
+                    <i class="fa-brands fa-whatsapp text-xl text-neutral-950"></i>
+                    <span>Agendar no WhatsApp (61) 99906-4704</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Mascote Segurando Placa "Descarte Aqui!" (Interativo) -->
+              <div class="flex justify-center md:justify-end shrink-0">
+                <div id="placa-mascote-container" 
+                     class="w-40 sm:w-48 relative mascote-interactive group"
+                     role="button" 
+                     tabindex="0" 
+                     aria-label="Tocar no mascote segurando a placa">
+                  <div id="placa-mascote-bubble" class="mascote-bubble" aria-live="polite"></div>
+                  <img id="placa-mascote-img" 
+                       src="assets/images/mascote-placa.svg" 
+                       alt="Mascote segurando a placa Descarte Aqui" 
+                       class="w-full h-auto drop-shadow-lg" />
+                  <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-muro-amarelo text-neutral-950 font-display font-black text-[10px] px-2.5 py-0.5 rounded-full border border-neutral-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap pointer-events-none uppercase tracking-tight flex items-center gap-1 group-hover:scale-105 transition-transform animate-bounce">
+                    <span>👆 Toque aqui</span>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAIXA 3 DO MURO COLORIDO COMO DIVISOR -->
+    <div class="muro-stripe" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         4. "O QUE NÃO ACEITAMOS": FUNDO VERMELHO VIBRANTE DO MURO
+         ========================================== -->
+    <section id="nao-aceitos" class="bg-muro-vermelho text-white py-12 sm:py-16 border-b-2 border-neutral-950">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-8">
+          <span class="inline-block bg-white text-muro-vermelho font-display font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-full border-2 border-neutral-950 shadow-[2px_2px_0px_#171717]">
+            Atenção às Regras
+          </span>
+          <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight mt-2 drop-shadow-sm">
+            O que NÃO aceitamos
+          </h2>
+          <p class="text-base text-red-100 font-medium mt-1">
+            Por normas sanitárias e risco de contaminação ambiental, é proibido descarregar estes materiais no pátio:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Não Aceito 1 -->
+          <div class="item-rejected bg-white text-neutral-950 p-6 rounded-2xl border-2 border-neutral-950 shadow-[4px_4px_0px_#171717] flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="inline-block bg-red-100 text-muro-vermelho text-xs font-black uppercase px-2.5 py-1 rounded-full border border-red-300">
+                Coleta Comum
+              </span>
+              <h3 class="font-display font-black text-lg text-neutral-950">
+                Lixo orgânico ou restos de comida
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-700 font-medium leading-relaxed">
+                Aguarde o caminhão da coleta domiciliar regular que passa nos dias da sua quadra. Não leve restos de alimento ao Ecoponto.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-200 text-xs font-bold text-red-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-ban"></i> Proibido no pátio
+            </div>
+          </div>
+
+          <!-- Não Aceito 2 -->
+          <div class="item-rejected bg-white text-neutral-950 p-6 rounded-2xl border-2 border-neutral-950 shadow-[4px_4px_0px_#171717] flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs font-black uppercase px-2.5 py-1 rounded-full border border-amber-300">
+                Remoção Pública
+              </span>
+              <h3 class="font-display font-black text-lg text-neutral-950">
+                Podas de árvores em grandes quantidades
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-700 font-medium leading-relaxed">
+                Para recolhimento de galhos volumosos, contate a Secretaria de Limpeza Urbana (SMLU) pelo WhatsApp (61) 99906-4704.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-200 text-xs font-bold text-red-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-ban"></i> Apenas pequenos galhos
+            </div>
+          </div>
+
+          <!-- Não Aceito 3 -->
+          <div class="item-rejected bg-white text-neutral-950 p-6 rounded-2xl border-2 border-neutral-950 shadow-[4px_4px_0px_#171717] flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="inline-block bg-neutral-900 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full">
+                Logística Reversa
+              </span>
+              <h3 class="font-display font-black text-lg text-neutral-950">
+                Pilhas, lâmpadas e produtos químicos
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-700 font-medium leading-relaxed">
+                Produtos tóxicos e químicos perigosos exigem devolução direta em farmácias, supermercados e comércios credenciados.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-200 text-xs font-bold text-red-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-triangle-exclamation"></i> Alto risco de contaminação
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. FOTOS REAIS DO ECOPONTO
+         ========================================== -->
+    <section id="local" class="py-12 sm:py-16 border-b-2 border-neutral-900 bg-page">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="mb-8">
+          <h2 class="font-display font-black text-2xl sm:text-3xl text-neutral-950 tracking-tight">
+            Fotos do local
+          </h2>
+          <p class="text-sm text-neutral-700 font-medium mt-1">
+            Imagens do espaço real na SQ 17 para facilitar sua identificação ao chegar de carro ou a pé.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Foto 1 -->
+          <div class="border-2 border-neutral-950 rounded-2xl overflow-hidden cursor-pointer bg-white shadow-[4px_4px_0px_#171717] group hover:-translate-y-1 hover:shadow-[6px_6px_0px_#171717] transition-all"
+               data-lightbox-src="assets/images/ecoponto-fachada.jpg"
+               data-lightbox-caption="Muro colorido da entrada principal do Ecoponto na SQ 17">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/ecoponto-fachada.jpg" 
+                   alt="Muro colorido com o letreiro oficial do Ecoponto"
+                   class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <!-- Selo interativo diretamente na foto -->
+              <div class="absolute bottom-2.5 right-2.5 bg-neutral-950/85 text-white group-hover:bg-muro-amarelo group-hover:text-neutral-950 text-[11px] font-black px-2.5 py-1 rounded-full border border-white/40 group-hover:border-neutral-950 shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+                <span>Toque para ampliar</span>
+              </div>
+            </div>
+            <div class="p-3 border-t-2 border-neutral-950 bg-white flex items-center justify-between">
+              <div>
+                <p class="text-xs font-black text-neutral-900">Entrada principal</p>
+                <p class="text-[11px] text-neutral-600 font-medium">Muro característico nas 4 cores</p>
+              </div>
+              <span class="w-7 h-7 rounded-full bg-neutral-100 group-hover:bg-muro-amarelo text-neutral-900 border border-neutral-300 group-hover:border-neutral-950 flex items-center justify-center text-xs transition-colors shrink-0">
+                <i class="fa-solid fa-expand text-[10px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Foto 2 -->
+          <div class="border-2 border-neutral-950 rounded-2xl overflow-hidden cursor-pointer bg-white shadow-[4px_4px_0px_#171717] group hover:-translate-y-1 hover:shadow-[6px_6px_0px_#171717] transition-all"
+               data-lightbox-src="assets/images/ecoponto-cacambas.jpg"
+               data-lightbox-caption="Pátio interno de descarte com caçambas separadas">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/ecoponto-cacambas.jpg" 
+                   alt="Caçambas para descarte no pátio interno"
+                   class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <!-- Selo interativo diretamente na foto -->
+              <div class="absolute bottom-2.5 right-2.5 bg-neutral-950/85 text-white group-hover:bg-muro-amarelo group-hover:text-neutral-950 text-[11px] font-black px-2.5 py-1 rounded-full border border-white/40 group-hover:border-neutral-950 shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+                <span>Toque para ampliar</span>
+              </div>
+            </div>
+            <div class="p-3 border-t-2 border-neutral-950 bg-white flex items-center justify-between">
+              <div>
+                <p class="text-xs font-black text-neutral-900">Pátio de caçambas</p>
+                <p class="text-[11px] text-neutral-600 font-medium">Descarga organizada por tipo de material</p>
+              </div>
+              <span class="w-7 h-7 rounded-full bg-neutral-100 group-hover:bg-muro-amarelo text-neutral-900 border border-neutral-300 group-hover:border-neutral-950 flex items-center justify-center text-xs transition-colors shrink-0">
+                <i class="fa-solid fa-expand text-[10px]"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Foto 3 -->
+          <div class="border-2 border-neutral-950 rounded-2xl overflow-hidden cursor-pointer bg-white shadow-[4px_4px_0px_#171717] group hover:-translate-y-1 hover:shadow-[6px_6px_0px_#171717] transition-all"
+               data-lightbox-src="assets/images/ecoponto-panoramica.jpg"
+               data-lightbox-caption="Esquina da SQ 17 ao lado da Capela Nossa Senhora de Fátima">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/ecoponto-panoramica.jpg" 
+                   alt="Visão ampla da rua mostrando a Capela Nossa Senhora de Fátima"
+                   class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <!-- Selo interativo diretamente na foto -->
+              <div class="absolute bottom-2.5 right-2.5 bg-neutral-950/85 text-white group-hover:bg-muro-amarelo group-hover:text-neutral-950 text-[11px] font-black px-2.5 py-1 rounded-full border border-white/40 group-hover:border-neutral-950 shadow-md backdrop-blur-sm transition-all flex items-center gap-1.5">
+                <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+                <span>Toque para ampliar</span>
+              </div>
+            </div>
+            <div class="p-3 border-t-2 border-neutral-950 bg-white flex items-center justify-between">
+              <div>
+                <p class="text-xs font-black text-neutral-900">Ponto de referência</p>
+                <p class="text-[11px] text-neutral-600 font-medium">Ao lado da Capela Nossa Senhora de Fátima</p>
+              </div>
+              <span class="w-7 h-7 rounded-full bg-neutral-100 group-hover:bg-muro-amarelo text-neutral-900 border border-neutral-300 group-hover:border-neutral-950 flex items-center justify-center text-xs transition-colors shrink-0">
+                <i class="fa-solid fa-expand text-[10px]"></i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FAIXA 4 DO MURO COLORIDO ANTES DO RODAPÉ -->
+  <div class="muro-stripe" aria-hidden="true"></div>
+
+  <!-- ==========================================
+       6. FOOTER: FUNDO AZUL VIBRANTE DO MURO
+       ========================================== -->
+  <footer id="site-footer" class="bg-muro-azul text-white pt-12 pb-24 sm:pb-28 text-sm border-t-2 border-neutral-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b-2 border-blue-400/40">
+        
+        <div class="md:col-span-6 space-y-2">
+          <p class="font-display font-black text-white text-2xl">Ecoponto Cidade Ocidental</p>
+          <p class="text-sm text-blue-100 font-medium leading-relaxed max-w-md">
+            Serviço público coordenado pela <strong>Secretaria Municipal de Limpeza Urbana (SMLU)</strong> da Prefeitura de Cidade Ocidental para descarte sustentável e preservação da nossa cidade.
+          </p>
+        </div>
+
+        <div class="md:col-span-6 space-y-2 text-sm sm:text-right">
+          <p class="font-display font-black text-white text-base">Atendimento ao Munícipe</p>
+          <p class="font-medium text-blue-100">
+            Telefone & WhatsApp: 
+            <a href="https://wa.me/5561999064704" class="text-muro-amarelo font-black underline ml-1">
+              (61) 99906-4704
+            </a>
+          </p>
+          <p class="text-blue-100 font-medium">Super Quadra 17 (SQ 17), Quadra 08, Área Especial</p>
+          <p class="text-blue-100 font-medium">Aberto todos os dias, das 7h às 19h</p>
+        </div>
+
+      </div>
+
+      <!-- Faixa Acolhedora de Encerramento com o Mascote Acenando -->
+      <div class="py-6 border-b-2 border-blue-400/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div id="footer-mascote-container" 
+               class="w-14 sm:w-16 shrink-0 relative mascote-interactive group"
+               role="button" 
+               tabindex="0" 
+               aria-label="Tocar no mascote do Ecoponto no rodapé">
+            <div id="footer-mascote-bubble" class="mascote-bubble" aria-live="polite"></div>
+            <img src="assets/images/mascote-acenando.svg" 
+                 alt="Mascote do Ecoponto acenando em agradecimento" 
+                 class="w-full h-auto drop-shadow-md" />
+            <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-muro-amarelo text-neutral-950 font-display font-black text-[8.5px] px-1.5 py-0.2 rounded-full border border-neutral-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap pointer-events-none uppercase tracking-tight flex items-center gap-0.5 group-hover:scale-105 transition-transform">
+              <span>👆 Toque</span>
+            </span>
+          </div>
+          <div class="text-center sm:text-left">
+            <p class="font-display font-black text-sm sm:text-base text-white">Cidade Ocidental mais limpa começa com você!</p>
+            <p class="text-xs text-blue-100 font-medium">Obrigado por utilizar o Ecoponto oficial da prefeitura. 💚</p>
+          </div>
+        </div>
+
+        <a href="#inicio" class="btn-sticker bg-white text-neutral-950 text-xs px-3.5 py-2 gap-1.5 shrink-0 shadow-[2px_2px_0px_#171717]">
+          <i class="fa-solid fa-arrow-up text-xs"></i>
+          <span>Voltar ao topo</span>
+        </a>
+      </div>
+
+      <!-- Linha final com margem de segurança para não ser coberta por botões -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center sm:items-start justify-between text-xs text-blue-200 font-medium gap-3 pr-0 sm:pr-36">
+        <p>© 2026 Prefeitura Municipal de Cidade Ocidental · SMLU</p>
+        <p class="text-white font-bold">Comunicação pública feita com carinho para o cidadão</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       DOCK DE AÇÃO RÁPIDA FLUTUANTE (MAPS + WHATSAPP)
+       Bolinhas circulares de 52px com alto contraste e toque imediato
+       ========================================== -->
+  <div id="fab-dock" class="fixed bottom-4 right-4 z-40 flex items-center gap-2.5 sm:gap-3" role="region" aria-label="Ações rápidas de localização e contato">
+    <!-- Botão Google Maps (Rota Direta) -->
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Capela+Nossa+Senhora+de+Fatima+Super+Quadra+17+Cidade+Ocidental+GO"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Como chegar no Ecoponto pelo Google Maps"
+       title="Como chegar (Google Maps)"
+       class="btn-fab bg-white text-neutral-950 hover:bg-neutral-50 group">
+      <i class="fa-solid fa-location-dot text-xl text-red-600 transition-transform group-hover:scale-110"></i>
+      <span class="sr-only">Como chegar (Google Maps)</span>
+    </a>
+
+    <!-- Botão WhatsApp (Bota-Fora / Atendimento) -->
+    <a href="https://wa.me/5561999064704?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20a%20coleta%20de%20m%C3%B3veis%20(Bota-Fora)%20no%20Ecoponto."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Agendar Bota-Fora ou tirar dúvidas no WhatsApp"
+       title="Falar no WhatsApp (61) 99906-4704"
+       class="btn-fab bg-[#FACC15] text-neutral-950 hover:bg-yellow-400 group">
+      <i class="fa-brands fa-whatsapp text-2xl text-neutral-950 transition-transform group-hover:scale-110"></i>
+      <span class="sr-only">Agendar no WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Modal Lightbox de Foto -->
+  <div id="photo-modal" class="fixed inset-0 z-50 hidden bg-black/85 items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full bg-neutral-900 rounded-2xl overflow-hidden border-2 border-white shadow-2xl">
+      <button id="modal-close" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center text-base border border-white">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="modal-img" src="" alt="Foto ampliada" class="w-full max-h-[75vh] object-contain bg-black" />
+      <div class="p-3 bg-neutral-900 text-white text-xs text-center font-medium">
+        <p id="modal-caption" class="text-neutral-300"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

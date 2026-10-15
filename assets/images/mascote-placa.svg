@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190" fill="none" class="w-full h-auto">
+  <style>
+    @keyframes swaySign {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-5px) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(0) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-5px) rotate(2deg);
+      }
+    }
+    .placa-com-maos {
+      transform-origin: 100px 105px;
+      transform-box: view-box;
+      animation: swaySign 2.4s ease-in-out infinite;
+    }
+    @keyframes mascotHopSubtle {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-2px);
+      }
+    }
+    .mascote-corpo {
+      animation: mascotHopSubtle 2.4s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .placa-com-maos, .mascote-corpo {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Sombra no chão -->
+  <ellipse cx="100" cy="182" rx="45" ry="6" fill="#000000" opacity="0.25" />
+
+  <!-- Pernas -->
+  <path d="M 85 142 L 85 170" stroke="#171717" stroke-width="5" stroke-linecap="round" />
+  <path d="M 115 142 L 115 170" stroke="#171717" stroke-width="5" stroke-linecap="round" />
+  <ellipse cx="81" cy="174" rx="12" ry="7" fill="#DC2626" stroke="#171717" stroke-width="4" />
+  <ellipse cx="119" cy="174" rx="12" ry="7" fill="#DC2626" stroke="#171717" stroke-width="4" />
+
+  <!-- Corpo da Caixinha Verde -->
+  <g class="mascote-corpo">
+    <rect x="64" y="44" width="72" height="98" rx="8" fill="#15803D" stroke="#171717" stroke-width="5" />
+
+    <!-- Tampa Azul -->
+    <rect x="58" y="34" width="84" height="15" rx="5" fill="#1D4ED8" stroke="#171717" stroke-width="4.5" />
+    <path d="M 90 34 C 90 24 110 24 110 34" stroke="#171717" stroke-width="4.5" fill="#EAB308" />
+
+    <!-- Olhos -->
+    <ellipse cx="86" cy="68" rx="7" ry="9" fill="#FFFFFF" stroke="#171717" stroke-width="3.5" />
+    <circle cx="88" cy="69" r="4.5" fill="#171717" />
+    <circle cx="89.5" cy="66.5" r="1.8" fill="#FFFFFF" />
+
+    <ellipse cx="114" cy="68" rx="7" ry="9" fill="#FFFFFF" stroke="#171717" stroke-width="3.5" />
+    <circle cx="116" cy="69" r="4.5" fill="#171717" />
+    <circle cx="117.5" cy="66.5" r="1.8" fill="#FFFFFF" />
+
+    <!-- Boca animada aberta sorrindo -->
+    <path d="M 90 80 C 95 90 105 90 110 80" stroke="#171717" stroke-width="4" stroke-linecap="round" fill="#DC2626" />
+
+    <!-- Símbolo da Reciclagem no peito -->
+    <circle cx="100" cy="112" r="14" fill="#EAB308" stroke="#171717" stroke-width="3" />
+    <path d="M 95 106 L 105 106 L 100 118 Z" fill="#15803D" />
+  </g>
+
+  <!-- Grupo animado da Placa segurada com as duas mãos balançando suavemente -->
+  <g class="placa-com-maos">
+    <!-- Braços conectando ao corpo descendo até a base da placa -->
+    <path d="M 64 88 C 46 98 44 118 62 130" stroke="#171717" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M 136 88 C 154 98 156 118 138 130" stroke="#171717" stroke-width="5" stroke-linecap="round" fill="none" />
+
+    <!-- Placa "DESCARTE AQUI!" limpa, ampla e 100% legível -->
+    <!-- Base branca com borda preta grossa -->
+    <rect x="25" y="86" width="150" height="46" rx="8" fill="#FFFFFF" stroke="#171717" stroke-width="4.5" />
+    <!-- Miolo amarelo do Ecoponto com contraste máximo -->
+    <rect x="29" y="90" width="142" height="38" rx="6" fill="#FACC15" />
+
+    <!-- Texto "DESCARTE AQUI!" perfeitamente centralizado com folga e alto contraste -->
+    <text x="100" y="110" font-family="'Arial Black', Arial, -apple-system, sans-serif" font-weight="900" font-size="14.5" fill="#171717" text-anchor="middle" dominant-baseline="central" letter-spacing="0.5">
+      DESCARTE AQUI!
+    </text>
+
+    <!-- Mãozinhas luvadas vermelhas posicionadas na base segurando a placa por baixo, sem encobrir texto -->
+    <!-- Mão Esquerda -->
+    <circle cx="62" cy="132" r="7" fill="#DC2626" stroke="#171717" stroke-width="3" />
+    <ellipse cx="62" cy="128" rx="4" ry="2.5" fill="#DC2626" stroke="#171717" stroke-width="2.5" />
+
+    <!-- Mão Direita -->
+    <circle cx="138" cy="132" r="7" fill="#DC2626" stroke="#171717" stroke-width="3" />
+    <ellipse cx="138" cy="128" rx="4" ry="2.5" fill="#DC2626" stroke="#171717" stroke-width="2.5" />
+  </g>
+</svg>

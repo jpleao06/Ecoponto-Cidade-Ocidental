@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" fill="none" class="w-auto h-12">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(10, 12)">
+    <path d="M 38 8 L 48 24 C 48 24 42 28 36 28 L 30 18 Z" fill="url(#greenGrad)" />
+    <path d="M 32 4 C 45 4 54 12 54 24 L 62 20 L 52 38 L 38 28 L 45 26 C 45 19 39 12 32 12 Z" fill="url(#greenGrad)" />
+    <path d="M 62 40 C 62 52 53 60 42 60 L 46 68 L 26 58 L 38 46 L 40 52 C 47 52 53 46 53 40 Z" fill="url(#blueGrad)" />
+    <path d="M 18 52 C 9 45 6 33 11 23 L 5 20 L 18 8 L 23 23 L 17 21 C 14 28 15 38 21 43 Z" fill="url(#yellowGrad)" />
+    <circle cx="36" cy="34" r="7" fill="url(#redGrad)"/>
+    <circle cx="36" cy="34" r="3.5" fill="#FFFFFF"/>
+  </g>
+
+  <text x="88" y="42" font-family="'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="900" fill="#0F172A" letter-spacing="-0.5">
+    ECO<tspan fill="#16A34A">PONTO</tspan>
+  </text>
+  <text x="88" y="63" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="800" fill="#475569" letter-spacing="1.5">
+    CIDADE OCIDENTAL
+  </text>
+  <rect x="88" y="72" width="22" height="5" rx="2.5" fill="#2563EB" />
+  <rect x="114" y="72" width="22" height="5" rx="2.5" fill="#16A34A" />
+  <rect x="140" y="72" width="22" height="5" rx="2.5" fill="#EAB308" />
+  <rect x="166" y="72" width="22" height="5" rx="2.5" fill="#EF4444" />
+
+  <text x="198" y="77" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#64748B">
+    SMLU • GOVERNO MUNICIPAL
+  </text>
+</svg>
