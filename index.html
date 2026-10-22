@@ -69,23 +69,23 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
         
-        <!-- Identificação Oficial com Ícone Colorido (Nunca Trunca) -->
-        <div class="flex items-center gap-3 shrink-0">
-          <a href="#inicio" class="flex items-center gap-2.5 group">
-            <div class="w-9 h-9 rounded bg-muro-verde border-2 border-neutral-950 shadow-[2px_2px_0px_#171717] flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-recycle text-muro-amarelo text-base"></i>
+        <!-- Identificação Oficial com Ícone Colorido (Flexível e Responsivo) -->
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0 shrink">
+          <a href="#inicio" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded bg-muro-verde border-2 border-neutral-950 shadow-[2px_2px_0px_#171717] flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-recycle text-muro-amarelo text-sm sm:text-base"></i>
             </div>
-            <div class="flex flex-col">
-              <span class="font-display font-black text-base sm:text-lg text-neutral-950 tracking-tight leading-none whitespace-nowrap">
+            <div class="flex flex-col min-w-0">
+              <span class="font-display font-black text-sm sm:text-lg text-neutral-950 tracking-tight leading-none truncate">
                 Ecoponto <span class="text-muro-verde">Cidade Ocidental</span>
               </span>
-              <span class="text-[11px] text-neutral-600 font-bold tracking-wide mt-0.5 whitespace-nowrap">
+              <span class="text-[9.5px] sm:text-[11px] text-neutral-600 font-bold tracking-tight mt-0.5 truncate">
                 SMLU · Secretaria de Limpeza Urbana
               </span>
             </div>
           </a>
 
-          <!-- Status em Pílula Colorida com Ponto Verde -->
+          <!-- Status em Pílula Colorida com Ponto Verde (Desktop) -->
           <div id="status-container" class="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-400 text-xs font-bold text-emerald-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap ml-2">
             <span id="status-dot" class="w-2 h-2 rounded-full bg-muro-verde shrink-0 inline-block animate-pulse"></span>
             <span id="status-text">Aberto agora · fecha às 19h</span>
@@ -93,7 +93,7 @@
         </div>
 
         <!-- Navegação Desktop: Tópicos Bem Divididos em Botões Coloridos -->
-        <div class="hidden lg:flex items-center gap-3 xl:gap-4 whitespace-nowrap">
+        <div class="hidden lg:flex items-center gap-3 xl:gap-4 whitespace-nowrap shrink-0">
           <nav class="flex items-center gap-2 text-xs font-bold">
             <!-- Tópico: Consulta Rápida -->
             <a href="#consulta" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 hover:bg-[#4ADE80] text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px] font-black">
@@ -136,41 +136,45 @@
           </a>
         </div>
 
-        <!-- Controles Mobile / Tablet (lg:hidden) -->
-        <div class="flex items-center gap-2 lg:hidden">
-          <a href="#consulta" 
-             class="btn-sticker bg-emerald-100 hover:bg-[#4ADE80] text-neutral-950 text-xs px-2.5 py-1.5 gap-1.5 shadow-[2px_2px_0px_#171717] font-black">
-            <i class="fa-solid fa-magnifying-glass text-neutral-950"></i>
-            <span>Consultar</span>
-          </a>
+        <!-- Controles Mobile / Tablet (lg:hidden) - SEMPRE VISÍVEIS, NUNCA TRANSBORDAM -->
+        <div class="flex items-center gap-2 lg:hidden shrink-0">
+          <!-- Botão WhatsApp Amarelo com o NÚMERO VISÍVEL NO CELULAR -->
           <a href="https://wa.me/5561999064704" 
-             class="btn-sticker btn-sticker-yellow text-xs px-2.5 py-1.5 gap-1.5 shadow-[2px_2px_0px_#171717]">
-            <i class="fa-brands fa-whatsapp text-neutral-950"></i>
-            <span class="hidden sm:inline">(61) 99906-4704</span>
-            <span class="sm:hidden">WhatsApp</span>
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="WhatsApp da Prefeitura (61) 99906-4704"
+             class="btn-sticker btn-sticker-yellow text-xs px-2.5 py-1.5 gap-1.5 shadow-[2px_2px_0px_#171717] shrink-0">
+            <i class="fa-brands fa-whatsapp text-neutral-950 text-sm"></i>
+            <span class="font-black text-[11px] sm:text-xs tracking-tight">(61) 99906-4704</span>
           </a>
-          <button id="mobile-menu-toggle" aria-label="Abrir menu de navegação" class="p-2 text-neutral-950 hover:bg-neutral-100 rounded-xl border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] bg-white">
-            <i class="fa-solid fa-bars text-lg"></i>
+
+          <!-- Botão Menu Hambúrguer (As 3 Linhas - Sempre Visível e Fácil de Clicar) -->
+          <button id="mobile-menu-toggle" 
+                  type="button"
+                  aria-label="Abrir menu de navegação" 
+                  aria-expanded="false"
+                  class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-neutral-950 hover:bg-neutral-100 active:scale-95 rounded-xl border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] bg-white shrink-0 transition-transform">
+            <i class="fa-solid fa-bars text-base" id="mobile-menu-icon"></i>
           </button>
         </div>
 
       </div>
     </div>
 
-    <!-- Dropdown Mobile com Tópicos Claros e Coloridos -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-neutral-900 bg-[#FBFBFA] px-4 py-4 space-y-2.5">
+    <!-- Dropdown Mobile com Tópicos Claros e Coloridos (Totalmente Acessível no Celular) -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-neutral-900 bg-[#FBFBFA] px-4 py-4 space-y-2.5 max-h-[85vh] overflow-y-auto shadow-2xl">
       <div class="flex items-center justify-between pb-2 border-b border-neutral-200 text-xs font-bold text-neutral-700">
-        <span>Navegação Rápida</span>
-        <div class="inline-flex items-center gap-1.5 text-xs text-neutral-800">
-          <span class="w-2 h-2 rounded-full bg-muro-verde"></span>
+        <span>Menu de Navegação</span>
+        <div class="inline-flex items-center gap-1.5 text-xs text-neutral-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
+          <span class="w-2 h-2 rounded-full bg-muro-verde animate-pulse"></span>
           <span>Aberto das 7h às 19h</span>
         </div>
       </div>
 
       <!-- Destaque: Consulta Rápida -->
-      <a href="#consulta" class="flex items-center justify-between p-2.5 rounded-xl bg-emerald-100 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
+      <a href="#consulta" class="flex items-center justify-between p-3 rounded-2xl bg-emerald-100 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950 hover:bg-[#4ADE80] transition-colors">
         <div class="flex items-center gap-2.5">
-          <span class="w-6 h-6 rounded-lg bg-[#4ADE80] text-neutral-950 flex items-center justify-center text-xs border border-neutral-900">
+          <span class="w-7 h-7 rounded-lg bg-[#4ADE80] text-neutral-950 flex items-center justify-center text-xs border border-neutral-900">
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
           <span>Consulta Rápida (O que descartar?)</span>
@@ -178,30 +182,57 @@
         <i class="fa-solid fa-arrow-right text-neutral-700 text-xs"></i>
       </a>
 
-      <a href="#informacoes" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-amber-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
-        <span class="w-3 h-3 rounded-full bg-amber-500 border border-neutral-900"></span>
-        <span>Horário & Localização (SQ 17)</span>
+      <a href="#informacoes" class="flex items-center justify-between p-3 rounded-2xl bg-amber-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950 hover:bg-muro-amarelo transition-colors">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-amber-400 text-neutral-950 flex items-center justify-center text-xs border border-neutral-900">
+            <i class="fa-solid fa-location-dot"></i>
+          </span>
+          <span>Horário & Localização (SQ 17)</span>
+        </div>
+        <i class="fa-solid fa-arrow-right text-neutral-700 text-xs"></i>
       </a>
 
-      <a href="#recebemos" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-blue-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
-        <span class="w-3 h-3 rounded-full bg-blue-500 border border-neutral-900"></span>
-        <span>O que recebemos (Recicláveis, Entulho, Móveis)</span>
+      <a href="#recebemos" class="flex items-center justify-between p-3 rounded-2xl bg-blue-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950 hover:bg-blue-100 transition-colors">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-blue-500 text-white flex items-center justify-center text-xs border border-neutral-900">
+            <i class="fa-solid fa-recycle text-muro-amarelo"></i>
+          </span>
+          <span>O que recebemos (Recicláveis e Entulho)</span>
+        </div>
+        <i class="fa-solid fa-arrow-right text-neutral-700 text-xs"></i>
       </a>
 
-      <a href="#nao-aceitos" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-red-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
-        <span class="w-3 h-3 rounded-full bg-muro-vermelho border border-neutral-900"></span>
-        <span>O que NÃO aceitamos (Lixo orgânico, Podas)</span>
+      <a href="#nao-aceitos" class="flex items-center justify-between p-3 rounded-2xl bg-red-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950 hover:bg-red-100 transition-colors">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-muro-vermelho text-white flex items-center justify-center text-xs border border-neutral-900">
+            <i class="fa-solid fa-ban"></i>
+          </span>
+          <span>O que NÃO aceitamos (Lixo orgânico)</span>
+        </div>
+        <i class="fa-solid fa-arrow-right text-neutral-700 text-xs"></i>
       </a>
 
-      <a href="#local" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-neutral-100 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950">
-        <span class="w-3 h-3 rounded-full bg-neutral-500 border border-neutral-900"></span>
-        <span>Fotos do Pátio</span>
+      <a href="#local" class="flex items-center justify-between p-3 rounded-2xl bg-neutral-100 border-2 border-neutral-900 shadow-[2px_2px_0px_#171717] font-display font-black text-sm text-neutral-950 hover:bg-neutral-200 transition-colors">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-neutral-700 text-white flex items-center justify-center text-xs border border-neutral-900">
+            <i class="fa-solid fa-camera"></i>
+          </span>
+          <span>Fotos reais do Pátio</span>
+        </div>
+        <i class="fa-solid fa-arrow-right text-neutral-700 text-xs"></i>
       </a>
 
+      <!-- Cartão Destaque do WhatsApp com Número Grande e Chamada Clara -->
       <div class="pt-2 border-t border-neutral-200">
-        <a href="https://wa.me/5561999064704" class="btn-sticker btn-sticker-yellow w-full py-3 text-sm justify-center gap-2">
-          <i class="fa-brands fa-whatsapp text-lg text-neutral-950"></i>
-          <span>Agendar no WhatsApp (61) 99906-4704</span>
+        <a href="https://wa.me/5561999064704?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Ecoponto." 
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-sticker btn-sticker-yellow w-full py-3.5 px-4 text-sm justify-center gap-2.5 shadow-[3px_3px_0px_#171717]">
+          <i class="fa-brands fa-whatsapp text-2xl text-neutral-950"></i>
+          <div class="flex flex-col text-left">
+            <span class="text-[11px] font-bold text-neutral-800 leading-none">Atendimento & Bota-Fora:</span>
+            <span class="text-base font-black text-neutral-950 leading-tight">(61) 99906-4704</span>
+          </div>
         </a>
       </div>
     </div>
@@ -906,6 +937,6 @@
   </div>
 
   <!-- Script principal -->
-  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

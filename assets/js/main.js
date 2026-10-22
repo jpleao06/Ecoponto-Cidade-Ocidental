@@ -467,16 +467,28 @@ function initPhotoLightbox() {
   });
 }
 
-// Menu Mobile
+// Menu Mobile (com suporte tátil, toggle de ícone e fechamento suave)
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const header = document.getElementById('main-header');
+  const icon = document.getElementById('mobile-menu-icon');
 
   if (!toggleBtn || !mobileMenu) return;
 
-  toggleBtn.addEventListener('click', () => {
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isHidden = mobileMenu.classList.toggle('hidden');
+    toggleBtn.setAttribute('aria-expanded', !isHidden);
+
+    if (icon) {
+      if (isHidden) {
+        icon.className = 'fa-solid fa-bars text-base';
+      } else {
+        icon.className = 'fa-solid fa-xmark text-base';
+      }
+    }
+
     // Garante que o header permaneça visível se o menu for aberto
     if (!isHidden && header) {
       header.classList.remove('header-hidden');
@@ -486,7 +498,18 @@ function initMobileMenu() {
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      if (icon) icon.className = 'fa-solid fa-bars text-base';
     });
+  });
+
+  // Fecha o menu ao clicar fora dele
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('hidden') && header && !header.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      if (icon) icon.className = 'fa-solid fa-bars text-base';
+    }
   });
 }
 
