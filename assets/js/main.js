@@ -436,15 +436,37 @@ function initPhotoLightbox() {
 
   if (!modal || !modalImg) return;
 
-  triggers.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const src = btn.getAttribute('data-lightbox-src');
-      const caption = btn.getAttribute('data-lightbox-caption') || '';
+  triggers.forEach(card => {
+    // Acessibilidade por teclado no card
+    card.setAttribute('role', 'button');
+    if (!card.hasAttribute('tabindex')) {
+      card.setAttribute('tabindex', '0');
+    }
+
+    const openModal = () => {
+      // Prioriza a imagem já renderizada e resolvida no DOM pelo Vite/Vercel
+      const innerImg = card.querySelector('img');
+      const src = innerImg ? (innerImg.currentSrc || innerImg.src) : card.getAttribute('data-lightbox-src');
+      const caption = card.getAttribute('data-lightbox-caption') || (innerImg ? innerImg.alt : '');
+
+      if (!src) return;
+
       modalImg.src = src;
+      modalImg.alt = caption || 'Foto ampliada do Ecoponto';
       if (modalCaption) modalCaption.textContent = caption;
+
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       document.body.style.overflow = 'hidden';
+    };
+
+    card.addEventListener('click', openModal);
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
+      }
     });
   });
 
@@ -455,9 +477,19 @@ function initPhotoLightbox() {
     document.body.style.overflow = '';
   };
 
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+  }
+
+  // Fecha clicando fora da caixa da foto (no backdrop)
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
+    const content = document.getElementById('modal-content');
+    if (!content || !content.contains(e.target)) {
+      closeModal();
+    }
   });
 
   document.addEventListener('keydown', (e) => {
