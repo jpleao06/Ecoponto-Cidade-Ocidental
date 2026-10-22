@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,7 +54,7 @@
   <link rel="stylesheet" href="assets/css/custom.css" />
 </head>
 
-<body class="bg-page text-neutral-900 font-sans antialiased min-h-screen flex flex-col pt-16 sm:pt-20">
+<body class="bg-page text-neutral-900 font-sans antialiased min-h-screen flex flex-col pt-16 sm:pt-20 overflow-x-hidden">
 
   <!-- ==========================================
        A) HEADER INTELIGENTE (HIDE ON SCROLL DOWN, SHOW ON SCROLL UP)
@@ -241,7 +241,7 @@
   <!-- FAIXA 1 DO MURO COLORIDO (LISTRAS VERTICAIS) -->
   <div class="muro-stripe" aria-hidden="true"></div>
 
-  <main class="flex-grow">
+  <main class="flex-grow overflow-x-hidden">
 
     <!-- ==========================================
          1. HERO SECTION: FUNDO VERDE VIBRANTE DO MURO COM MASCOTE
@@ -350,7 +350,7 @@
       
       <!-- Mascote Espiando no topo do bloco (Interativo e com efeito ao rolar) -->
       <div id="espiando-mascote-container" 
-           class="absolute -top-14 right-6 sm:right-16 w-20 sm:w-24 z-20 pointer-events-auto mascote-interactive group"
+           class="absolute -top-14 right-8 sm:right-16 md:right-20 w-20 sm:w-24 z-20 pointer-events-auto mascote-interactive group"
            role="button" 
            tabindex="0" 
            aria-label="Tocar no mascote espiando para ver uma dica de horário">
@@ -359,7 +359,7 @@
              src="assets/images/mascote-espiando.svg" 
              alt="Mascote do Ecoponto espiando pela borda" 
              class="w-full h-auto drop-shadow-md" />
-        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white text-neutral-950 font-display font-black text-[9px] px-2 py-0.5 rounded-full border border-neutral-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap pointer-events-none uppercase tracking-tight flex items-center gap-1 group-hover:scale-105 transition-transform animate-bounce">
+        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white text-neutral-950 font-display font-black text-[9px] px-2.5 py-0.5 rounded-full border border-neutral-950 shadow-[1px_1px_0px_#171717] whitespace-nowrap pointer-events-none uppercase tracking-tight flex items-center gap-1 group-hover:scale-105 transition-transform animate-bounce">
           <span>👆 Toque aqui</span>
         </span>
       </div>
